@@ -13,7 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @role('admin')
+                    <p>this is visible to users with the admin role. Gets translated to\Laratrust::hashRole('admin')</p>
+                    @endrole
 
+                    @role('pengguna')
+                    <p>this is visible to users with the pengguna role. Gets translated to\Laratrust::hashRole('pengguna')</p>
+                    @endrole
                     {{ __('You are logged in!') }}
                 </div>
             </div>
