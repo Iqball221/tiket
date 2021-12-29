@@ -239,17 +239,17 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'buku',
+            'text' => 'Penumpang',
             'url'  => 'admin/buku',
             'icon'  => 'far fa-fw fa-file',
         ],
         [
-            'text' => 'pengarang',
-            'url'  => 'admin/pengarang',
+            'text' => 'Home',
+            'url'  => 'home',
             'icon'  => 'far fa-fw fa-file',
         ],
         [
-            'text' => 'menu lainnya',
+            'text' => 'Transaksi',
             'url'  => '#',
             'icon'  => 'far fa-fw fa-file',
         ],
