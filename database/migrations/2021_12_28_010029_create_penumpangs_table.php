@@ -19,8 +19,8 @@ class CreatePenumpangsTable extends Migration
             $table->string('jk');
             $table->integer('no_hp');
             $table->string('jenis_tiket');
-            $table->string('asal_berangkat');
-            $table->string('tujuan_berangkat');
+            $table->string('asal');
+            $table->string('tujuan');
             $table->date('tgl_berangkat');
             $table->integer('jumlah');
              $table->string('total');

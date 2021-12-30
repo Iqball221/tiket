@@ -14,7 +14,7 @@ class PenumpangController extends Controller
      */
     public function index()
     {
-        $penumpang = penumpang::all();
+        $penumpang = Penumpang::all();
         return view('penumpang.index', compact('penumpang'));
     }
 
@@ -36,16 +36,16 @@ class PenumpangController extends Controller
      */
     public function store(Request $request)
     {
-        $penumpang = new penumpang;
-        $penumpang->nama=request->nama;
-        $penumpang->jk=request->jk;
-        $penumpang->no_hp=request->no_hp;
-        $penumpang->jenis=request->jenis;
-        $penumpang->asal=request->asal;
-        $penumpang->tujuan=request->tujuan;
-        $penumpang->tgl_berangkat=request->tgl_berangkat;
-        $penumpang->jumlah=request->jumlah;
-        $penumpang->total=request->total;
+        $penumpang = new Penumpang;
+        $penumpang->nama=$request->nama;
+        $penumpang->jk=$request->jk;
+        $penumpang->no_hp=$request->no_hp;
+        $penumpang->jenis_tiket=$request->jenis_tiket;
+        $penumpang->asal=$request->asal;
+        $penumpang->tujuan=$request->tujuan;
+        $penumpang->tgl_berangkat=$request->tgl_berangkat;
+        $penumpang->jumlah=$request->jumlah;
+        $penumpang->total=$request->total;
         $penumpang->save();
         return redirect()->route('penumpang.index');
     }
@@ -56,9 +56,9 @@ class PenumpangController extends Controller
      * @param  \App\Models\Penumpang  $penumpang
      * @return \Illuminate\Http\Response
      */
-    public function show(Penumpang $penumpang)
+    public function show($id)
     {
-        $penumpang = penumpang::findOrfail($id);
+        $penumpang = Penumpang::findOrfail($id);
         return view('penumpang.show', compact('penumpang'));
     }
 
@@ -70,7 +70,7 @@ class PenumpangController extends Controller
      */
     public function edit($id)
     {
-        $penumpang = penumpang::findOrfail($id);
+        $penumpang = Penumpang::findOrfail($id);
         return view('penumpang.edit', compact('penumpang'));
     }
 
@@ -81,22 +81,21 @@ class PenumpangController extends Controller
      * @param  \App\Models\Penumpang  $penumpangreturn redirect()->route('penumpang.index');
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penumpang $penumpang)
+    public function update(Request $request, $id)
     {
-        $penumpang = new penumpang::findOrfail($id);
-        $penumpang->nama=request->nama;
-        $penumpang->jk=request->jk;
-        $penumpang->no_hp=request->no_hp;
-        $penumpang->jenis=request->jenis;
-        $penumpang->asal=request->asal;
-        $penumpang->tujuan=request->tujuan;
-        $penumpang->tgl_berangkat=request->tgl_berangkat;
-        $penumpang->jumlah=request->jumlah;
-        $penumpang->total=request->total;
+        $penumpang = Penumpang::findOrfail($id);
+        $penumpang->nama = $request->nama;
+        $penumpang->jk = $request->jk;
+        $penumpang->no_hp = $request->no_hp;
+        $penumpang->jenis_tiket = $request->jenis_tiket;
+        $penumpang->asal = $request->asal;
+        $penumpang->tujuan = $request->tujuan;
+        $penumpang->tgl_berangkat = $request->tgl_berangkat;
+        $penumpang->jumlah = $request->jumlah;
+        $penumpang->total = $request->total;
         $penumpang->save();
         return redirect()->route('penumpang.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -105,7 +104,7 @@ class PenumpangController extends Controller
      */
     public function destroy(Penumpang $penumpang)
     {
-        $penumpang = new penumpang::findOrfail($id);
+        $penumpang = Penumpang::findOrfail($id);
         $penumpang->delete();
         return redirect()->route('penumpang.index');
 

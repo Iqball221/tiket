@@ -26,9 +26,8 @@ Auth::routes(
 );
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/penumpang', [App\Http\Controllers\HomeController::class, 'index'])->name('penumpang');
-Route::resource('/transaksi', [App\Http\Controllers\HomeController::class, 'index'])->name('transaksi');
-
+Route::resource('penumpang', PenumpangController::class);
+Route::resource('transaksi', TransaksiController::class);
 // // hanya untuk role admin
 // Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
 //     Route::get('/', function(){

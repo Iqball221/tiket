@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Penumpang;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $transaksi = transaksi::all();
+        $transaksi = Transaksi::all();
         return view('transaksi.index', compact('transaksi'));
     }
 
@@ -25,7 +25,7 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        $transaksi = tra$transaksi::all();
+        $penumpang = Penumpang::all();
         return view('transaksi.index', compact('penumpang'));
     }
 
@@ -38,8 +38,8 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         $transaksi = new Transaksi;
-        $transaksi->jenis_transaksi=request->jenis_transaksi;
-        $transaksi->id_penumpang=request->id_penumpang;
+        $transaksi->jenis_transaksi=$request->jenis_transaksi;
+        $transaksi->id_penumpang=$request->id_penumpang;
         $transaksi->save();
         return redirect()->route('transaksi.index');
     }
@@ -84,8 +84,8 @@ class TransaksiController extends Controller
         ]);
 
         $transaksi = Transaksi::findOrfail($id);
-        $transaksi->jenis_transaksi=request->jenis_transaksi;
-        $transaksi->id_penumpang=request->id_penumpang;
+        $transaksi->jenis_transaksi=$request->jenis_transaksi;
+        $transaksi->id_penumpang=$request->id_penumpang;
         $transaksi->save();
         return redirect()->route('transaksi.index');
     }
@@ -98,7 +98,7 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-       $transaksi = new Transaksi::findOrfail($id);
+       $transaksi = Transaksi::findOrfail($id);
         $transaksi->delete();
         return redirect()->route('transaksi.index');
     }

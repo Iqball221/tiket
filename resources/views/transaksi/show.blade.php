@@ -55,44 +55,20 @@
               <div class="card-header">
                 <h3 class="card-title">DATA PENUMPANG</h3>
               </div>
+              <form action="" method="post">
+                  @csrf
+                  @method('put')
+                  <div class="panel-body">
+                      <label>jenis pembayaran</label>
+                      <input type="text" class="form-control" name="jenis_transaksi" value="{{$transaksi->jenis_transaksi}}" disabled>
+                  </div>
+                  <div class="panel-body">
+                      <label>Nama penumpang</label>
+                      <input type="text" class="form-control" name="id_penumpangs" value="{{$transaksi->penumpangs->nama}}" disabled>
+                  </div>
+              </form>
               <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>ID</th>
-                      <th>NAMA</th>
-                      <th>NO HP</th>
-                      <th>ASAL BERANGKAT</th>
-                      <th>TUJUAN BERANGKAT</th>
-                      <th>TANGGAL BERANGKAT</th>
-                      <th>JENIS TIKET</th>
-                      <th>JUMLAH</th>
-                      <th>TOTAL BAYAR</th>
-                      <th style="width: 40px">AKSI</th>
-                    </tr>
-                  </thead>
-                  @php $no=1; @endphp
-                  @foreach($penumpang as $data)
-
-                  <tr>
-                      <td>{{ $no++ }}</td>
-                      <td>{{ $data->nama }}</td>
-                      <td>{{ $data->jk }}</td>
-                      <td>{{ $data->no_hp }}</td>
-                      <td>{{ $data->jenis }}</td>
-                      <td>{{ $data->asal }}</td>
-                      <td>{{ $data->tujuan }}</td>
-                      <td>{{ $data->tgl_berangkat }}</td>
-                      <td>{{ $data->jumlah }}</td>
-                      <td>{{ $data->total }}</td>
-
-                      <td>
-                          <form action="{{route('penumpang.destroy', $data->id) }}
-                      </td>
-                  </tr>
-                </table>
+              
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
