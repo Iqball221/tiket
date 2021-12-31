@@ -64,11 +64,12 @@
                       <th style="width: 10px">#</th>
                       <th>ID</th>
                       <th>NAMA</th>
+                      <th>JENIS KELAMIN</th>
                       <th>NO HP</th>
+                       <th>JENIS TIKET</th>
                       <th>ASAL BERANGKAT</th>
                       <th>TUJUAN BERANGKAT</th>
                       <th>TANGGAL BERANGKAT</th>
-                      <th>JENIS TIKET</th>
                       <th>JUMLAH</th>
                       <th>TOTAL BAYAR</th>
                       <th style="width: 40px">AKSI</th>
@@ -96,23 +97,14 @@
                             <a href="{{route('penumpang.edit',$data->id )}}" class="btn btn-success float-rigth">Ubah</a>
                             <a href="{{route('penumpang.show',$data->id )}}" class="btn btn-warning float-rigth">Tampil</a>
                             <button type="submit"  class ="btn btn-danger" onclick="return confirm('apakah anda yakin ingin menghapus ini?');">Delete</button></button>
-</form>                      
+                        </form>                      
                           </td>
                   </tr>
                   @endforeach
                 </table>
               </div>
               <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
+              
             
           </div><!-- /.col -->
         </div><!-- /.row -->
