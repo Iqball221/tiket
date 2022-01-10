@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKeretasTable extends Migration
+class CreateTiketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,19 @@ class CreateKeretasTable extends Migration
      */
     public function up()
     {
-        Schema::create('keretas', function (Blueprint $table) {
-             $table->id();
-            $table->bigInteger('id_penumpang')->unsigned();
-            $table->string('nama_kereta');
-            $table->string('jam_berangkat');
-            $table->string('asal_berangkat');
-            $table->string('tujuan_berangkat');
-            //FK
+        Schema::create('tikets', function (Blueprint $table) {
+            $table->id();
+             $table->bigInteger('id_penumpang')->unsigned();
+            $table->string('jenis_tiket');
+            $table->string('no_duduk');
+            $table->integer('stok');
+            $table->string('total_terjual');
+            $table->integer('sisa_tiket');
+            
             $table->foreign('id_penumpang')->references('id')
                   ->on('penumpangs')->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->timestamps();
+                  $table->timestamps();
         });
     }
 
@@ -35,6 +36,8 @@ class CreateKeretasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keretas');
+        Schema::dropIfExists('tikets');
     }
 }
+
+
