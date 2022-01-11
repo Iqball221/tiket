@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\DataTransaksi;
-use App\Models\Penumpang;
-use App\Models\Transaksi;
 use App\Models\Kereta;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
@@ -29,11 +27,9 @@ class DataTransaksiController extends Controller
     public function create()
     {
         
-        $penumpang = Penumpang::all();
-        $transaksi = Transaksi::all();
         $kereta = Kereta::all();
         $tiket = Tiket::all();
-        return view('dataTransaksi.create',compact('penumpang','transaksi','kereta','tiket'));
+        return view('dataTransaksi.create',compact('kereta','tiket'));
 
 
 
@@ -83,12 +79,11 @@ class DataTransaksiController extends Controller
      */
     public function edit($id)
     {
-        $penumpang = Penumpang::all();
-        $transaksi = Transaksi::all();
+       
         $kereta = Kereta::all();
         $tiket = Tiket::all();
         $dataTransaksi = DataTransaksi::all();
-        return view('dataTransaksi.create',compact('penumpang','transaksi','kereta','tiket','dataTransaksi'));
+        return view('dataTransaksi.create',compact('kereta','tiket','dataTransaksi'));
     }
 
     /**
@@ -101,25 +96,29 @@ class DataTransaksiController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id_penumpang' => 'required',
-            'id_transaksi' => 'required',
+            'nama' => 'required',
+            'jk' => 'required',
+            'no_hp' => 'required',
             'id_kereta' => 'required',
             'id_tiket' => 'required',
-            'asal' => 'required',
-            'tujuan' => 'required',
+            'jam_berangkat' => 'required',
+            'asal_berangkat' => 'required',
+            'tujuan_berangkat' => 'required',
+            'no_duduk' => 'required',
             'jumlah' => 'required',
-            'total' => 'required',
             
         ]);
         $dataTransaksi = DataTransaksi::findOrFail($id);
-        $dataTransaksi->id_penumpang = $request->id_penumpang;
-        $dataTransaksi->id_transaksi = $request->id_transaksi;
+        $dataTransaksi->nama = $request->nama;
+        $dataTransaksi->jk = $request->jk;
+        $dataTransaksi->no_hp = $request->no_hp;
         $dataTransaksi->id_kereta = $request->id_kereta;
         $dataTransaksi->id_tiket = $request->id_tiket;
-        $dataTransaksi->asal = $request->asal;
-        $dataTransaksi->tujuan = $request->tujuan;
+        $dataTransaksi->jam_berangkat = $request->jam_berangkat;
+        $dataTransaksi->asal_berangkat = $request->asal_berangkat;
+        $dataTransaksi->tujuan_berangkat = $request_berangkat->tujuan;
+        $dataTransaksi->no_duduk = $request->no_duduk;
         $dataTransaksi->jumlah = $request->jumlah;
-        $dataTransaksi->total = $request->total;
 
     }
 
@@ -133,6 +132,6 @@ class DataTransaksiController extends Controller
     {
         $dataTransaksi = Kereta::findOrfaill($id);
         $dataTransaksi->Delete();
-        return redirect()->route('dataTransaksi.index')
+        return redirect()->route('dataTransaksi.index');
     }
 }

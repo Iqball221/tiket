@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PenumpangController;
-use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\KeretaController;
+use App\Http\Controllers\TiketController;
+use App\Http\Controllers\DataTransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,9 @@ Auth::routes(
 );
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('penumpang', PenumpangController::class);
-Route::resource('transaksi', TransaksiController::class);
+Route::resource('kereta', KeretaController::class);
+Route::resource('tiket', TiketController::class);
+Route::resource('dataTransaksi', DataTransaksiController::class);
 // // hanya untuk role admin
 // Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
 //     Route::get('/', function(){

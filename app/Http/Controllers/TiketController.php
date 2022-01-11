@@ -25,8 +25,8 @@ class TiketController extends Controller
      */
     public function create()
     {
-        $penumpang = Penumpang::all();
-        return view('tiket.create', compact('penumpang'));
+        
+        return view('tiket.create');
     }
 
     /**
@@ -84,20 +84,15 @@ class TiketController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id_penumpang' => 'required',
             'jenis_tiket' => 'required',
-            'no_duduk' => 'required',
             'stok' => 'required',
-            'total_terjual' => 'required',
-            'sisa_tiket ' => 'required',
+            'harga' => 'required',
              ]);
               $tiket = Kereta::findOrFail($id);
-        $tiket->id_penumpang = $request->id_penumpang;
+        
         $tiket->jenis_tiket = $request->jenis_tiket;
-        $tiket->no_duduk = $request->no_duduk;
         $tiket->stok = $request->stok;
-        $tiket->total_terjual = $request->total_terjual;
-        $tiket->sisa_tiket = $request->sisa_tiket;
+        $tiket->harga = $request->total_terjual;
         return redirect()->route('kereta.index');
 
     }
@@ -112,6 +107,6 @@ class TiketController extends Controller
     {
         $tiket = Tiket::findOrfaill($id);
         $tiket->Delete();
-        return redirect()->route('tiket.index')
+        return redirect()->route('tiket.index');
     }
 }

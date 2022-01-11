@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Kereta extends Model
 {
     use HasFactory;
-    protected $visible = ['id_penumpang','nama_kereta','jam_berangkat','asal_berangkat', 'tujuan_berangkat'];
-    protected $fillable = ['id_penumpang','nama_kereta','jam_berangkat', 'asal_berangkat', 'tujuan_berangkat'];
+    protected $visible = ['nama_kereta'];
+    protected $fillable = ['nama_kereta'];
     public $timestamps = true;
 
-    public function penumpangs()
+    public function keretas()
     {
-        return $this->belongsTo('App\Models\Penumpang', 'id_penumpang');
+        return $this->hasMany('App\Models\Penumpang', 'id_kereta');
     }
 }

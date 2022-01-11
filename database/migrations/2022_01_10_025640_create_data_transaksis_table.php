@@ -15,24 +15,18 @@ class CreateDataTransaksisTable extends Migration
     {
         Schema::create('data_transaksis', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_penumpang')->unsigned();
-            $table->bigInteger('id_transaksi')->unsigned();
+            $table->string('nama');
+            $table->string('jk');
+            $table->integer('no_hp');
             $table->bigInteger('id_kereta')->unsigned();
             $table->bigInteger('id_tiket')->unsigned();
+            $table->string('jam_berangkat');
             $table->string('asal');
             $table->string('tujuan');
-            $table->string('asal_berangkat');
-            $table->string('tujuan_berangkat');
+            $table->string('no_duduk');
             $table->integer('jumlah');
-            $table->integer('total');
-
+        
             
-            $table->foreign('id_penumpang')->references('id')
-                  ->on('penumpangs')->onUpdate('cascade')
-                  ->onDelete('cascade');
-                  $table->foreign('id_transaksi')->references('id')
-                  ->on('transaksis')->onUpdate('cascade')
-                  ->onDelete('cascade');
                   $table->foreign('id_kereta')->references('id')
                   ->on('keretas')->onUpdate('cascade')
                   ->onDelete('cascade');

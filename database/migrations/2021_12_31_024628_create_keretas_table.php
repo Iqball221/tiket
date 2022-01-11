@@ -15,15 +15,8 @@ class CreateKeretasTable extends Migration
     {
         Schema::create('keretas', function (Blueprint $table) {
              $table->id();
-            $table->bigInteger('id_penumpang')->unsigned();
             $table->string('nama_kereta');
-            $table->string('jam_berangkat');
-            $table->string('asal_berangkat');
-            $table->string('tujuan_berangkat');
-            //FK
-            $table->foreign('id_penumpang')->references('id')
-                  ->on('penumpangs')->onUpdate('cascade')
-                  ->onDelete('cascade');
+          
             $table->timestamps();
         });
     }

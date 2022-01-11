@@ -83,18 +83,13 @@ class KeretaController extends Controller
     {
         $validated = $request->validate([
             'nama_kereta' => 'required',
-            'jam_berangkat' => 'required',
-            'asal_berangkat' => 'required',
-            'tujuan_berangkat' => 'required',
-            'id_penumpang' => 'required',
+
     ]);
 
         $kereta = Kereta::findOrFail($id);
-        $kereta->nama_kereta = $request->nama_kereta;
-        $kereta->jam_berangkat = $request->jam_berangkat;
-        $kereta->asal_berangkat = $request->asal_berangkat;
-        $kereta->tujuan_berangkat = $request->tujuan_berangkat;
-        $kereta->id_penumpang = $request->id_penumpang;
+        $kereta->id_penumpang = $request->nama_kereta;
+        $kereta->nama_kereta = $request->jam_berangkat;
+    
         $kereta->save();
         return redirect()->route('kereta.index');
     }

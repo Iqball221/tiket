@@ -44,16 +44,22 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="penumpang" class="nav-link active">
+                <a href="kereta" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Penumpang</p>
+                  <p>Kereta</p>
+
+                  <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="tiket" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tiket</p>
 
                 </a>
               </li>
               <li class="nav-item">
-                <a href="transaksi" class="nav-link">
+                <a href="dataTransaksi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Transaksi</p>
+                  <p>dataTransaksi</p>
                 </a>
               </li>
               

@@ -63,11 +63,10 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>ID</th>
-                      <th>penumpang</th>
+                      
                       <th>jenis tiket</th>
-                      <th>no duduk</th>
                       <th>stok</th>
-                      <th>total terjual</th>
+                      <th>harga</th>
                       <th style="width: 40px">AKSI</th>
                     </tr>
                   </thead>
@@ -76,7 +75,6 @@
 
                   <tr>
                       <td>{{ $no++ }}</td>
-                      <td>{{ $data->id_penumpang }}</td>
                       <td>{{ $data->jenis_tiket }}</td>
                       <td>{{ $data->no_duduk }}</td>
                       <td>{{ $data->stok }}</td>
@@ -87,9 +85,8 @@
                           <form action="{{route('tiket.destroy', $data->id) }} " method="post">
                             @method ('delete')
                             @csrf
-                            <a href="{{route('tiket.edit',$data->id )}}" class="btn btn-success float-rigth">Ubah</a>
-                            <a href="{{route('tiket.show',$data->id )}}" class="btn btn-warning float-rigth">Tampil</a>
-                            <button type="submit"  class ="btn btn-danger" onclick="return confirm('apakah anda yakin ingin menghapus ini?');">Delete</button></button>
+                            <button type = "reset" class = "btn btn-warning">Reset</button>
+                                       <button type = "submit" class = "btn btn-primary">Tambah</button>
                         </form>                      
                           </td>
                   </tr>

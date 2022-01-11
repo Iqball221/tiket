@@ -8,18 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class DataTransaksi extends Model
 {
     use HasFactory;
-    protected $visible = ['id_penumpang', 'id_transaksi', 'id_kereta', 'id_tiket','asal','tujuan','jumlah','total']; 
-    protected $fillable = ['id_penumpang', 'id_transaksi', 'id_kereta', 'id_tiket','asal','tujuan','jumlah','total'];
+    protected $visible = ['nama', 'jk', 'no_hp', 'id_kereta','id_tiket','jam_berangkat','asal_berangkat','tujuan_berangkat','no_duduk','jumlah']; 
+    protected $fillable = ['nama', 'jk', 'no_hp', 'id_kereta','id_tiket','jam_berangkat','asal_berangkat','tujuan_berangkat','no_duduk','jumlah'];
     public $timestamps = true;
 
-     public function penumpangs()
-    {
-        return $this->belongsTo('App\Models\Penumpang', 'id_penumpang');
-    }
-     public function transaksis()
-    {
-        return $this->belongsTo('App\Models\Transaksi', 'id_transaksi');
-    }
+   
     public function keretas()
     {
         return $this->belongsTo('App\Models\Kereta', 'id_kereta');

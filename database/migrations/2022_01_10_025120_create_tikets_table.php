@@ -15,16 +15,11 @@ class CreateTiketsTable extends Migration
     {
         Schema::create('tikets', function (Blueprint $table) {
             $table->id();
-             $table->bigInteger('id_penumpang')->unsigned();
             $table->string('jenis_tiket');
-            $table->string('no_duduk');
             $table->integer('stok');
-            $table->string('total_terjual');
-            $table->integer('sisa_tiket');
+            $table->integer('harga');
             
-            $table->foreign('id_penumpang')->references('id')
-                  ->on('penumpangs')->onUpdate('cascade')
-                  ->onDelete('cascade');
+            
                   $table->timestamps();
         });
     }
