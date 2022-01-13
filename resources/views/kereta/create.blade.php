@@ -54,12 +54,7 @@
                                <form action="{{ route('kereta.store') }}" method = "post">
                                    @csrf
 
-                                   <div class="panel-body">
-                            <label>Penumpang</label>
-                         <select name="id_penumpang" class="form-control">
-                               @foreach($penumpang as $data)
-                               <option value="{{$data->id}}">{{$data->nama}}</option>
-                               @endforeach
+                                
                             </select>
                              </div>
 

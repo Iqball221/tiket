@@ -73,7 +73,7 @@
                       <th>TUJUAN BERANGKAT</th>
                       <th>NO DUDUK</th>
                       <th>JUMLAH</th>
-                      <th style="width: 40px">AKSI</th>
+                      <th>AKSI</th>
                     </tr>
                   </thead>
                   @php $no=1; @endphp

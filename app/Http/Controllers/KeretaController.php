@@ -14,6 +14,9 @@ class KeretaController extends Controller
      */
     public function index()
     {
+
+
+    
         $kereta = Kereta::all();
         return view('kereta.index', compact('kereta'));
     }
@@ -25,8 +28,8 @@ class KeretaController extends Controller
      */
     public function create()
     {
-         $penumpang = Penumpang::all();
-        return view('kereta.create', compact('penumpang'));
+         
+        return view('kereta.create');
     }
 
     /**
@@ -39,11 +42,9 @@ class KeretaController extends Controller
     {
         $kereta = new Kereta;
         $kereta->nama_kereta = $request->nama_kereta;
-        $kereta->jam_berangkat = $request->jam_berangkat;
-        $kereta->asal_berangkat = $request->asal_berangkat;
-        $kereta->tujuan_berangkat = $request->tujuan_berangkat;
-        $kereta->id_penumpang = $request->id_penumpang;
         $kereta->save();
+
+       
         return redirect()->route('kereta.index');  
     }
 
@@ -68,8 +69,8 @@ class KeretaController extends Controller
     public function edit($id)
     {
         $kereta = Kereta::findOrfail($id);
-        $penumpang = Penumpang::all();
-        return view('kereta.edit', compact('kereta', 'penumpang'));
+      
+        return view('kereta.edit', compact('kereta'));
     }
 
     /**
@@ -87,7 +88,7 @@ class KeretaController extends Controller
     ]);
 
         $kereta = Kereta::findOrFail($id);
-        $kereta->id_penumpang = $request->nama_kereta;
+       
         $kereta->nama_kereta = $request->jam_berangkat;
     
         $kereta->save();
@@ -100,10 +101,10 @@ class KeretaController extends Controller
      * @param  \App\Models\Kereta  $kereta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kereta $kereta)
+    public function destroy($id)
     {
         $kereta = Kereta::findOrfaill($id);
-        $kerata->Delete();
-        return redirect()->route('kereta.index')
+        $kerata->delete();
+        return redirect()->route('kereta.index');
     }
 }

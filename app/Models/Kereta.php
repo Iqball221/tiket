@@ -14,6 +14,6 @@ class Kereta extends Model
 
     public function keretas()
     {
-        return $this->hasMany('App\Models\Penumpang', 'id_kereta');
+        return $this->hasMany('App\Models\Kereta', 'id_kereta');
     }
 }

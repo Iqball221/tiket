@@ -38,12 +38,11 @@ class TiketController extends Controller
     public function store(Request $request)
     {
         $tiket = new Tiket;
-        $tiket->id_penumpang = $request->id_penumpang;
+        
         $tiket->jenis_tiket = $request->jenis_tiket;
-        $tiket->no_duduk = $request->no_duduk;
         $tiket->stok = $request->stok;
-        $tiket->total_terjual = $request->total_terjual;
-        $tiket->sisa_tiket = $request->sisa_tiket;
+        $tiket->harga = $request->harga;
+
 
         $tiket->save();
         return redirect()->route('tiket.index');  
@@ -70,8 +69,8 @@ class TiketController extends Controller
     public function edit($id)
     {
         $tiket = Tiket::findOrfail($id);
-        $penumpang = Penumpang::all();
-        return view('tiket.edit', compact('tiket', 'penumpang'));
+        
+        return view('tiket.edit', compact('tiket'));
     }
 
     /**
@@ -88,11 +87,11 @@ class TiketController extends Controller
             'stok' => 'required',
             'harga' => 'required',
              ]);
-              $tiket = Kereta::findOrFail($id);
+              $tiket = Tiket::findOrFail($id);
         
         $tiket->jenis_tiket = $request->jenis_tiket;
         $tiket->stok = $request->stok;
-        $tiket->harga = $request->total_terjual;
+        $tiket->harga = $request->harga;
         return redirect()->route('kereta.index');
 
     }

@@ -44,16 +44,17 @@ class DataTransaksiController extends Controller
     public function store(Request $request)
     {
         $dataTransaksi = new Kereta;
-        $dataTransaksi->id_penumpang = $request->id_penumpang;
-        $dataTransaksi->id_transaksi = $request->id_transaksi;
+        $dataTransaksi->nama = $request->nama;
+        $dataTransaksi->jk = $request->jk;
+        $dataTransaksi->no_hp = $request->no_hp;
         $dataTransaksi->id_kereta = $request->id_kereta;
         $dataTransaksi->id_tiket = $request->id_tiket;
-        $dataTransaksi->asal = $request->asal;
-        $dataTransaksi->tujuan = $request->tujuan;
+        $dataTransaksi->jam_berangkat = $request->jam_berangkat;
         $dataTransaksi->asal_berangkat = $request->asal_berangkat;
         $dataTransaksi->tujuan_berangkat = $request->tujuan_berangkat;
+        $dataTransaksi->no_duduk = $request->no_duduk;
         $dataTransaksi->jumlah = $request->jumlah;
-        $dataTransaksi->total = $request->total;
+        
 
         $dataTransaksi->save();
         return redirect()->route('kereta.index');

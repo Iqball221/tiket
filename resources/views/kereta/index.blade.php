@@ -61,14 +61,12 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
-                      <th>ID</th>
-                      <th>PENUMPANG</th>
+                      <th style="width: 10px">Id</th>
+                    
+                     
                       <th>NAMA KERETA</th>
-                      <th>JAM BERANGKAT</th>
-                      <th>ASAL BERANGKAT</th>
-                      <th>TUJUAN BERANGKAT</th>
-                      <th style="width: 40px">AKSI</th>
+                      
+                      <th>AKSI</th>
                     </tr>
                   </thead>
                   @php $no=1; @endphp
@@ -76,11 +74,9 @@
 
                   <tr>
                       <td>{{ $no++ }}</td>
-                      <td>{{ $data->id_penumpang }}</td>
+                     
                       <td>{{ $data->nama_kereta }}</td>
-                      <td>{{ $data->jam_berangkat }}</td>
-                      <td>{{ $data->asal_berangkat }}</td>
-                      <td>{{ $data->tujuan_berangkat }}</td>
+                      
 
 
                       <td>

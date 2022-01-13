@@ -46,7 +46,7 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        
           <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -61,13 +61,11 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
-                      <th>ID</th>
-                      
+                      <th style="width: 10px">id</th>
                       <th>jenis tiket</th>
                       <th>stok</th>
                       <th>harga</th>
-                      <th style="width: 40px">AKSI</th>
+                      <th>AKSI</th>
                     </tr>
                   </thead>
                   @php $no=1; @endphp
@@ -76,9 +74,8 @@
                   <tr>
                       <td>{{ $no++ }}</td>
                       <td>{{ $data->jenis_tiket }}</td>
-                      <td>{{ $data->no_duduk }}</td>
                       <td>{{ $data->stok }}</td>
-                      <td>{{ $data->total_terjual }}</td>
+                      <td>{{ $data->harga }}</td>
                       
 
                       <td>
