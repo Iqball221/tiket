@@ -49,6 +49,7 @@ class ApiController extends Controller
         $kereta = Kereta::findOrFail($id);
         $kereta->nama_kereta = $request->jam_berangkat;
         $kereta->save();
+        return redirect()->route('kereta.index');
 
         return response()->json([
            'succes' => true,
